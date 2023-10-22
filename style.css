@@ -1,0 +1,135 @@
+:root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+* {
+  box-sizing: border-box;
+}
+/* Set body dimensions */
+body {
+  width: 100vw; /* Viewport width */
+  height: 100vh; /* Viewport height */
+  margin: 0; /* No margins */
+  display: flex; /* Flexible layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background: #1e1e20; /* Dark background color */
+ }
+/* Card container */
+.card {
+  width: var(--card-width); /* Card width */
+  height: var(--card-height); /* Card height */
+  position: relative; /* Relative positioning */
+  display: flex; /* Flexible layout */
+  justify-content: center; /* Horizontal centering */
+  align-items: flex-end; /* Vertical alignment at bottom */
+  padding: 0 36px; /* Padding around card content */
+  perspective: 2500px; /* 3D perspective */
+  margin: 0 50px; /* Horizontal margin */
+ }
+
+/* Set cover image dimensions */
+.cover-image {
+  width: 100%; /* Fill container width */
+  height: 100%; /* Fill container height */
+  object-fit: cover; /* Maintain aspect ratio */
+ }
+
+/* Wrapper element */
+.wrapper {
+  /* Transition effect for smooth changes */
+  transition: all 0.5s;
+  /* Positioning */
+  position: absolute;
+  /* Full width */
+  width: 100%;
+  /* Lower z-index for background */
+  z-index: -1;
+ }
+/* Hover effect on card */
+.card:hover .wrapper {
+  /* Apply 3D perspective and rotation */
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  /* Add box shadow for depth effect */
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  /* Add vendor prefixes for box shadow */
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(197, 59, 59, 0.75);
+ 
+  /* Apply blur effect for smooth transition */
+  filter: blur(2px);
+ }
+
+/* Wrapper before and after pseudo-elements */
+.wrapper::before,
+.wrapper::after {
+ content: ""; /* Empty content */
+ opacity: 0; /* Transparent */
+ width: 100%; /* Full width */
+ height: 80px; /* Fixed height */
+ transition: all 0.5s; /* Smooth transition */
+ position: absolute; /* Absolute positioning */
+ left: 0; /* Align to left */
+}
+/* Gradient background */
+.wrapper::before {
+  top: 0; /* Top position */
+  height: 100%; /* Full height */
+  background-image: linear-gradient(
+     to top, /* Direction */
+     transparent 46%, /* Transparent start */
+     rgba(12, 13, 19, 0.5) 68%, /* Semi-transparent middle */
+     rgba(12, 13, 19) 97% /* Opaque end */
+  );
+ }
+/* Gradient background for wrapper */
+.wrapper::after {
+  bottom: 0; /* Position at bottom */
+  opacity: 1; /* Fully opaque */
+  background-image: linear-gradient(
+     to bottom, /* Gradient direction */
+     transparent 46%, /* Transparent until 46% */
+     rgba(12, 13, 19, 0.5) 68%, /* Semi-transparent black from 68% */
+     rgba(12, 13, 19) 97% /* Fully opaque black from 97% */
+  );
+ }
+
+/* Hover effect on card */
+.card:hover .wrapper::before {
+  opacity: 1; /* Show before pseudo-element */
+ }
+ 
+ /* Add opacity to the after pseudo-element of the wrapper */
+ .wrapper::after {
+  opacity: 1; /* Show after pseudo-element */
+ }
+
+/* On hover, increase the height of the wrapper's pseudo-element */
+.card:hover .wrapper::after {
+  height: 120px;
+ }
+/* Define title style */
+.title {
+  width: 100%; /* Full width container */
+  transition: transform 0.5s; /* Smooth transition on transform */
+ }
+/* On card hover, title moves upwards */
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px); /* Translate title 50px upwards and 100px in z-axis */
+ }
+
+/* Define character style */
+.character {
+  width: 100%; /* Full width */
+  opacity: 0; /* Invisible */
+  transition: all 0.5s; /* Smooth transition */
+  position: absolute; /* Absolute positioning */
+  z-index: -1; /* Lower layer */
+ }
+/* On card hover, character opacity increases */
+.card:hover .character {
+  opacity: 1;
+ 
+  /* Character moves upwards and forwards */
+  transform: translate3d(0%, -30%, 100px);
+ }
