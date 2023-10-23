@@ -1,5 +1,7 @@
 # 3D Animated Card Showcase
 
+>Aj_Styles
+
 Welcome to the 3D Animated Card Showcase! This repository contains HTML and CSS code for creating captivating 3D animated cards. These cards react to mouse hover with a 3D perspective, rotation, and a blur effect, creating a visually engaging user experience.
 
 ![Demo Image](./imh/demo.gif)
