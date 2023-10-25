@@ -13,8 +13,7 @@ Welcome to the 3D Animated Card Showcase! This repository contains HTML and CSS 
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
-- [License](#license)
-
+- 
 ## Introduction
 
 The 3D Animated Card Showcase project aims to demonstrate the creation of interactive 3D cards using HTML and CSS. These cards can be integrated into websites or applications to enhance user engagement and provide an immersive visual experience on hover.
